@@ -1,0 +1,72 @@
+
+#tsu {
+    font-size: 40px; 
+    font-family: "Nico Moji";
+    color: rgba(15, 72, 13, 0.846); 
+    position: absolute;
+    left: 35%;
+    top: 7% 
+}
+
+#text {
+    border: 2px solid #0a0;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    padding: 0.5em;          
+    background-color: #0a0; 
+    width: 20em;             
+    height: 120px;               
+    font-size: 1.5em;
+    color: white;   
+    line-height: 1.2;
+    position: absolute;
+    left: 40%;
+    top: 15%; 
+}   
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 62.5%;/*rem算出をしやすくするために*/
+  }
+  
+  .btn,
+  a.btn,
+  button.btn {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+  }
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #0a0;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #0a0;
+}
+
+#all{
+    background-color: rgb(161, 250, 161);
+}

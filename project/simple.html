@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="simple.css">
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<title>Chatアプリ</title>
+</head>
+<body>
+
+<!-- コンテンツ表示画面 -->
+<div id="all">
+    <div id="tsu">きもちをつぶやいてみよう！</div>
+    <div>
+        <textarea name="" id="text" cols="30" rows="10"></textarea>
+        <a href="" class="btn btn--orange">PUSH</a>    
+    </div>    
+    <div id="output"></div>
+</div>
+
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!--** Firebase **-->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
+    from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.14.0/firebase-database.min.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "",
+      authDomain: "fir-4projectc.firebaseapp.com",
+      projectId: "fir-4projectc",
+      storageBucket: "fir-4projectc.appspot.com",
+      messagingSenderId: "570358835871",
+      appId: "1:570358835871:web:0d6f3535bd8bef2c8c90aa"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app); // RealtimeDBに接続、講義資料より
+    const dbRef = ref(db, "chat"); // RealtimeDB内の"chat"を使う
+    $("#send").on("click", function () {
+        const msg = {
+            uname: $("#uname").val(),
+            text: $("#text").val()
+        }
+        const newPostRef = push(dbRef); // pushできる状態にする
+        set(newPostRef, msg); // DBに値を送る
+    });
+    var btn = document.getElementById('exe_botan');
+
+    onChildAdded(dbRef, function (data) {
+        const msg = data.val();
+        const key = data.key;
+        let h = "<p>";
+        h += msg.uname;
+        h += "<br>";
+        h += msg.text;
+        h += "</p>";
+        $("#output").append(h); // #output の最後に追加
+    });
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
